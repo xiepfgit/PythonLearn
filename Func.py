@@ -45,7 +45,15 @@ def Triangles(max):
         L.insert(len(L), 1)
         trianglesL = L
         
-        
+def NewTrianbles(max):
+    N = [1]
+    ii = 0
+    while ii<max:
+        ii += 1
+        yield N
+        N.append(0)
+        N = [N[i-1] + N[i] for i in range(len(N))]
+    
 
 if __name__ == '__main__':
     #函数
@@ -139,5 +147,11 @@ if __name__ == '__main__':
     for L in Triangles(5):
         print(L)
         
+    for L in NewTrianbles(5):
+        print(L)   
+        
+    
+    
+     
     pass
 
