@@ -5,6 +5,7 @@ Created on 2019��6��13��
 @author: XPF
 '''
 from _functools import reduce
+from getpass import fallback_getpass
 
 def FSquare(x, y):
     return x*y
@@ -55,6 +56,23 @@ def primes():
         yield n
         it = filter(_not_divisible(n), it)
 
+def is_palindrome(n):
+    s1 = str(n)
+    length = len(s1)
+    half = (length//2)+1
+    for i, sItem in enumerate(s1):
+        if s1[i] != s1[length-i-1]:
+            return False
+    return True
+
+def by_name(t):
+    s = str(t)
+    return s.upper()
+  
+def by_score(t):
+    l = list(t)
+    return l[1]
+    
 if __name__ == '__main__':
     l = [1,2,3,4,5]
     l[0] = 0
@@ -89,11 +107,22 @@ if __name__ == '__main__':
     l2 = l2[2:]
     #print(l2)
     
+    #由于primes()也是一个无限序列，所以调用时需要设置一个退出循环的条件：
     for i in primes():
         if i<1000:
             print(i)
         else:
             break
+
+    
+    output = filter(is_palindrome, range(0, 1000))
+    print('1~1000:', list(output))
+    
+    #sorted排序
+    L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+    print(sorted(L, key=by_name))
+    
+    print(sorted(L, key = by_score))
     
     pass
 

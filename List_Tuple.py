@@ -28,6 +28,9 @@ if __name__ == '__main__':
     classmates[1] = 'Sarah'
     print(classmates)
     
+    LL = [('bob', 1), ('cop', 2)]
+    print(LL[1][0])
+    
     L = ['Apple', 123, True]
     print(L)
 
