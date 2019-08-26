@@ -63,9 +63,7 @@ def TestFunc(test):
 
 #不能只是写一个类名，至少添加一些注释说明，如果没有注释，则下面if语句会报错
 class test(object):
-    '''
-    classdocs
-    '''
+    pass
             
         
 if __name__ == '__main__':
